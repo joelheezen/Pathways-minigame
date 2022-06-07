@@ -1,0 +1,44 @@
+html{
+    overflow: hidden;
+    height:100vh;
+    width:100vw;
+    padding:0;
+    margin:0;
+}
+html *{
+    position: absolute;
+}
+
+body{
+    padding:0;
+    margin:0;
+}
+
+game{
+    overflow: hidden;
+    display:block;
+    width:100vw;
+    height:100vh;
+    top:0;
+    left:0;
+}
+
+game *{
+    display : block;
+}
+
+mascotte{
+    background-color: red;
+    width:50vw;
+    height:10vh;
+    top:4vh;
+    left:25vw;
+}
+
+startbutton{
+    background-color: red;
+    width: 50vw;
+    height: 10vh;
+    left:25vw;
+    top:70vh;
+}
