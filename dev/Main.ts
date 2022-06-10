@@ -1,12 +1,9 @@
 window.addEventListener("load", () => new Startscreen())
 
 class Startscreen{
+    static currentSituation = 1
     constructor(){
         this.createStartLayout()
-    }
-
-    startSituation(number:number){
-        new Situation(number)
     }
 
     createStartLayout(){
@@ -15,6 +12,10 @@ class Startscreen{
         let startButton = document.createElement("startbutton")
         game.appendChild(mascotte)
         game.appendChild(startButton)
-        startButton.addEventListener("click",() => this.startSituation(1))
+        startButton.addEventListener("click",() => this.startSituation(Startscreen.currentSituation))
+    }
+
+    startSituation(number:number){
+        new Situation(number)
     }
 }

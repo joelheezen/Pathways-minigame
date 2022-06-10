@@ -42,3 +42,45 @@ startbutton{
     left:25vw;
     top:70vh;
 }
+
+cardbox{
+    background-color: rgb(250, 181, 181);
+    width:90vw;
+    height:40vh;
+    left:5vw;
+    top: 20vh;
+}
+
+lockbtn{
+    background-color: red;
+    width:50vw;
+    height: 10vh;
+    top: 70vh;
+    left:25vw;
+}
+
+card{
+    width: 80vw;
+    height: 40vh;
+    left:5vw;
+    background-color: blue;
+    transition: all 1s ease;
+}
+
+leftcycle{
+    background-color: green;
+    z-index: 1;
+    width:20vw;
+    height:50vh;
+    left:0;
+    top:15vh;
+}
+
+rightcycle{
+    background-color: yellow;
+    z-index: 1;
+    width: 20vw;
+    height: 50vh;
+    right:0;
+    top:15vh;
+}

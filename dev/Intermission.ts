@@ -1,0 +1,27 @@
+class Intermission{
+    game = document.getElementsByTagName("game")[0]
+    constructor(selectedCard:HTMLElement){
+        this.game.innerHTML = ""
+        this.showSelectedCard(selectedCard)
+        this.nextButton()
+    }
+
+    showSelectedCard(card:HTMLElement){
+        this.game.appendChild(card)
+        localStorage.setItem("situation" + Startscreen.currentSituation, card.style.backgroundImage)
+        card.style.top = `10vh`
+        card.style.left = `10vw`
+        console.log(card)
+    }
+
+    nextButton(){
+        Startscreen.currentSituation += 1
+        let btn = document.createElement("lockbtn")
+        this.game.appendChild(btn)
+        btn.addEventListener("click", () => this.advance(Startscreen.currentSituation))
+    }
+
+    advance(n:number){
+        new Situation(n)
+    }
+}
