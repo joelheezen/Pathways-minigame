@@ -65,6 +65,8 @@ card{
     left:5vw;
     background-color: blue;
     transition: all 1s ease;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 leftcycle{

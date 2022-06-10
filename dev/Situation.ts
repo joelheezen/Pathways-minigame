@@ -150,15 +150,18 @@ class Situation{
         let topCard = document.createElement("card")
         this.game.appendChild(topCard)
         topCard.style.backgroundImage = localStorage.getItem("situation1")
+        topCard.style.left = `10vw`
 
         let middleCard = document.createElement("card")
-        middleCard.style.top = `40vh`
+        middleCard.style.top = `45vh`
         this.game.appendChild(middleCard)
         middleCard.style.backgroundImage = localStorage.getItem("situation2")
+        middleCard.style.left = `10vw`
 
         let bottomCard = document.createElement("card")
         this.game.appendChild(bottomCard)
-        bottomCard.style.top = `80vh`
+        bottomCard.style.top = `90vh`
         bottomCard.style.backgroundImage = localStorage.getItem("situation3")
+        bottomCard.style.left = `10vw`
     }
 }
