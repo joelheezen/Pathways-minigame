@@ -6,40 +6,31 @@ var Card = (function () {
     Card.prototype.setCard = function (number) {
         switch (number) {
             case 1:
-                this.card.innerHTML = "test";
-                this.card.style.backgroundImage = "url(assets/download.jpg)";
+                this.card.style.backgroundImage = "url(assets/Crowded-street.jpg)";
                 break;
             case 2:
-                this.card.innerHTML = "testing";
-                this.card.style.backgroundImage = "url(assets/download.jpg)";
+                this.card.style.backgroundImage = "url(assets/dark-alley.jpg)";
                 break;
             case 3:
-                this.card.innerHTML = "testing";
-                this.card.style.backgroundImage = "url(assets/download.jpg)";
+                this.card.style.backgroundImage = "url(assets/lit-street.jpg)";
                 break;
             case 4:
-                this.card.innerHTML = "testing";
-                this.card.style.backgroundImage = "url(assets/download.jpg)";
+                this.card.style.backgroundImage = "url(assets/hey-jij-daar.png)";
                 break;
             case 5:
-                this.card.innerHTML = "testing";
-                this.card.style.backgroundImage = "url(assets/download.jpg)";
+                this.card.style.backgroundImage = "url(assets/hey-lekker-ding.png)";
                 break;
             case 6:
-                this.card.innerHTML = "testing";
-                this.card.style.backgroundImage = "url(assets/download.jpg)";
+                this.card.style.backgroundImage = "url(assets/psst.png)";
                 break;
             case 7:
-                this.card.innerHTML = "testing";
-                this.card.style.backgroundImage = "url(assets/download.jpg)";
+                this.card.style.backgroundImage = "url(assets/Call.png)";
                 break;
             case 8:
-                this.card.innerHTML = "testing";
-                this.card.style.backgroundImage = "url(assets/download.jpg)";
+                this.card.style.backgroundImage = "url(assets/Help.png)";
                 break;
             case 9:
-                this.card.innerHTML = "testing";
-                this.card.style.backgroundImage = "url(assets/download.jpg)";
+                this.card.style.backgroundImage = "url(assets/comfort.jpg)";
                 break;
         }
     };
@@ -123,6 +114,10 @@ var Situation = (function () {
         var leftCycle = document.createElement("leftcycle");
         var rightCycle = document.createElement("rightcycle");
         this.game.appendChild(leftCycle);
+        leftCycle.style.backgroundImage = "url(assets/arrow-left.png)";
+        leftCycle.style.backgroundSize = "100% 100%";
+        rightCycle.style.backgroundImage = "url(assets/arrow-right.png)";
+        rightCycle.style.backgroundSize = "100% 100%";
         this.game.appendChild(rightCycle);
         leftCycle.addEventListener("click", function () { return _this.cycleLeft(); });
         rightCycle.addEventListener("click", function () { return _this.cycleRight(); });

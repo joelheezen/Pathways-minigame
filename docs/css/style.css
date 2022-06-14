@@ -70,19 +70,19 @@ card{
 }
 
 leftcycle{
-    background-color: green;
     z-index: 1;
-    width:20vw;
-    height:50vh;
+    width:25vw;
+    height:30vh;
     left:0;
-    top:15vh;
+    top:25vh;
+    opacity: 30%;
 }
 
 rightcycle{
-    background-color: yellow;
     z-index: 1;
-    width: 20vw;
-    height: 50vh;
+    width: 25vw;
+    height: 30vh;
     right:0;
-    top:15vh;
+    top:25vh;
+    opacity: 30%;
 }

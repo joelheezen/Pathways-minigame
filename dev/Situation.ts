@@ -29,6 +29,10 @@ class Situation{
         let leftCycle = document.createElement("leftcycle")
         let rightCycle = document.createElement("rightcycle")
         this.game.appendChild(leftCycle)
+        leftCycle.style.backgroundImage = `url(assets/arrow-left.png)`
+        leftCycle.style.backgroundSize = `100% 100%`
+        rightCycle.style.backgroundImage = `url(assets/arrow-right.png)`
+        rightCycle.style.backgroundSize = `100% 100%`
         this.game.appendChild(rightCycle)
         leftCycle.addEventListener("click", () => this.cycleLeft())
         rightCycle.addEventListener("click", () => this.cycleRight())
