@@ -47,6 +47,7 @@ var Intermission = (function () {
         this.nextButton();
     }
     Intermission.prototype.showSelectedCard = function (card) {
+        this.game.appendChild(new Prompt("Je hebt gekozen voor").returnPrompt());
         this.game.appendChild(card);
         localStorage.setItem("situation" + Startscreen.currentSituation, card.style.backgroundImage);
         card.style.top = "10vh";
@@ -58,6 +59,9 @@ var Intermission = (function () {
         Startscreen.currentSituation += 1;
         var btn = document.createElement("lockbtn");
         this.game.appendChild(btn);
+        var h1 = document.createElement("h1");
+        h1.innerHTML = "volgende";
+        btn.appendChild(h1);
         btn.addEventListener("click", function () { return _this.advance(Startscreen.currentSituation); });
     };
     Intermission.prototype.advance = function (n) {
@@ -73,10 +77,15 @@ var Startscreen = (function () {
     Startscreen.prototype.createStartLayout = function () {
         var _this = this;
         var game = document.getElementsByTagName("game")[0];
-        var mascotte = document.createElement("mascotte");
+        var mascotte = document.createElement("H1");
         var startButton = document.createElement("startbutton");
         game.appendChild(mascotte);
+        mascotte.style.top = "10vh";
+        mascotte.innerHTML = "abc-game";
         game.appendChild(startButton);
+        var h1 = document.createElement("h1");
+        startButton.appendChild(h1);
+        h1.innerHTML = "start";
         startButton.addEventListener("click", function () { return _this.startSituation(Startscreen.currentSituation); });
     };
     Startscreen.prototype.startSituation = function (number) {
@@ -84,6 +93,16 @@ var Startscreen = (function () {
     };
     Startscreen.currentSituation = 1;
     return Startscreen;
+}());
+var Prompt = (function () {
+    function Prompt(text) {
+        this.h1 = document.createElement("h1");
+        this.h1.innerHTML = text;
+    }
+    Prompt.prototype.returnPrompt = function () {
+        return this.h1;
+    };
+    return Prompt;
 }());
 var Situation = (function () {
     function Situation(number) {
@@ -123,6 +142,7 @@ var Situation = (function () {
         rightCycle.addEventListener("click", function () { return _this.cycleRight(); });
     };
     Situation.prototype.createFirstSituation = function () {
+        this.game.appendChild(new Prompt("Je bent onderweg naar huis, welke weg zou je nemen?").returnPrompt());
         console.log("created first situation");
         this.card1 = new Card(1).returnCard();
         this.card2 = new Card(2).returnCard();
@@ -136,6 +156,7 @@ var Situation = (function () {
         this.card3.style.transform = "translateX(105%)";
     };
     Situation.prototype.createSecondSituation = function () {
+        this.game.appendChild(new Prompt("Iemand benadert je, op wie zou je reageren?").returnPrompt());
         console.log("created second situation");
         this.card1 = new Card(4).returnCard();
         this.card2 = new Card(5).returnCard();
@@ -149,6 +170,7 @@ var Situation = (function () {
         this.card3.style.transform = "translateX(105%)";
     };
     Situation.prototype.createThirdSituation = function () {
+        this.game.appendChild(new Prompt("Je ziet iemand seksueel geintimideert worden, help je, bel je de politie of troost je die persoon nadat het gebeurt is?").returnPrompt());
         console.log("created third situation");
         this.card1 = new Card(7).returnCard();
         this.card2 = new Card(8).returnCard();
@@ -165,6 +187,9 @@ var Situation = (function () {
         var _this = this;
         var lockBtn = document.createElement("lockbtn");
         this.game.appendChild(lockBtn);
+        var h1 = document.createElement("H1");
+        h1.innerHTML = "keuze";
+        lockBtn.appendChild(h1);
         lockBtn.addEventListener("click", function () { return _this.submitCard(); });
     };
     Situation.prototype.cycleRight = function () {
@@ -218,25 +243,33 @@ var Situation = (function () {
     };
     Situation.prototype.endScreen = function () {
         var html = document.getElementsByTagName("html")[0];
+        var text = document.createElement("H1");
+        text.innerHTML = "Eindresultaten";
         html.style.overflow = "scroll";
         var htmlGame = this.game;
         htmlGame.style.overflow = "scroll";
         this.game.innerHTML = "";
         console.log("endresults");
         var topCard = document.createElement("card");
+        this.game.appendChild(text);
         this.game.appendChild(topCard);
         topCard.style.backgroundImage = localStorage.getItem("situation1");
         topCard.style.left = "10vw";
+        topCard.style.top = "10vh";
         var middleCard = document.createElement("card");
-        middleCard.style.top = "45vh";
+        middleCard.style.top = "55vh";
         this.game.appendChild(middleCard);
         middleCard.style.backgroundImage = localStorage.getItem("situation2");
         middleCard.style.left = "10vw";
         var bottomCard = document.createElement("card");
         this.game.appendChild(bottomCard);
-        bottomCard.style.top = "90vh";
+        bottomCard.style.top = "100vh";
         bottomCard.style.backgroundImage = localStorage.getItem("situation3");
         bottomCard.style.left = "10vw";
+        var bottomText = document.createElement("h1");
+        bottomText.innerHTML = "bespreek met je groepsgenoten hoe jullie keuzes verschillen en waarom!";
+        this.game.appendChild(bottomText);
+        bottomText.style.top = "140vh";
     };
     return Situation;
 }());

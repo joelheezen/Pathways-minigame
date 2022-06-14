@@ -21,30 +21,25 @@ game{
     height:100vh;
     top:0;
     left:0;
+    background-color: oldlace;
 }
 
 game *{
     display : block;
 }
 
-mascotte{
-    background-color: red;
-    width:50vw;
-    height:10vh;
-    top:4vh;
-    left:25vw;
-}
-
 startbutton{
-    background-color: red;
+    background-color: #c3dfdb;
+    border-radius: 5px;
+    box-shadow: 5px 5px #888888;
     width: 50vw;
     height: 10vh;
     left:25vw;
     top:70vh;
+    text-align: center;
 }
 
 cardbox{
-    background-color: rgb(250, 181, 181);
     width:90vw;
     height:40vh;
     left:5vw;
@@ -52,7 +47,9 @@ cardbox{
 }
 
 lockbtn{
-    background-color: red;
+    background-color:#c3dfdb;
+    border-radius: 5px;
+    box-shadow: 5px 5px #888888;
     width:50vw;
     height: 10vh;
     top: 70vh;
@@ -63,10 +60,11 @@ card{
     width: 80vw;
     height: 40vh;
     left:5vw;
-    background-color: blue;
     transition: all 1s ease;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    box-shadow: 5px 10px #888888;
+    background-color: #EFE3CE;
 }
 
 leftcycle{
@@ -85,4 +83,9 @@ rightcycle{
     right:0;
     top:25vh;
     opacity: 30%;
+}
+
+h1{
+    text-align: center;
+    width: 100%;
 }

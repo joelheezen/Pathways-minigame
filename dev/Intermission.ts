@@ -7,6 +7,7 @@ class Intermission{
     }
 
     showSelectedCard(card:HTMLElement){
+        this.game.appendChild(new Prompt("Je hebt gekozen voor").returnPrompt())
         this.game.appendChild(card)
         localStorage.setItem("situation" + Startscreen.currentSituation, card.style.backgroundImage)
         card.style.top = `10vh`
@@ -18,6 +19,9 @@ class Intermission{
         Startscreen.currentSituation += 1
         let btn = document.createElement("lockbtn")
         this.game.appendChild(btn)
+        let h1 = document.createElement("h1")
+        h1.innerHTML = `volgende`
+        btn.appendChild(h1)
         btn.addEventListener("click", () => this.advance(Startscreen.currentSituation))
     }
 

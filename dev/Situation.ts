@@ -39,6 +39,7 @@ class Situation{
     }
 
     createFirstSituation(){
+        this.game.appendChild(new Prompt("Je bent onderweg naar huis, welke weg zou je nemen?").returnPrompt())
         console.log("created first situation")
         this.card1 = new Card(1).returnCard()
         this.card2 = new Card(2).returnCard()
@@ -54,6 +55,7 @@ class Situation{
     }
 
     createSecondSituation(){
+        this.game.appendChild(new Prompt("Iemand benadert je, op wie zou je reageren?").returnPrompt())
         console.log("created second situation")
         this.card1 = new Card(4).returnCard()
         this.card2 = new Card(5).returnCard()
@@ -69,6 +71,7 @@ class Situation{
     }
 
     createThirdSituation(){
+        this.game.appendChild(new Prompt("Je ziet iemand seksueel geintimideert worden, help je, bel je de politie of troost je die persoon nadat het gebeurt is?").returnPrompt())
         console.log("created third situation")
         this.card1 = new Card(7).returnCard()
         this.card2 = new Card(8).returnCard()
@@ -86,6 +89,9 @@ class Situation{
     createLockBtn(){
         let lockBtn = document.createElement("lockbtn")
         this.game.appendChild(lockBtn)
+        let h1 = document.createElement("H1")
+        h1.innerHTML = `keuze`
+        lockBtn.appendChild(h1)
         lockBtn.addEventListener("click",() => this.submitCard())
     }
 
@@ -146,26 +152,34 @@ class Situation{
     
     endScreen(){
         let html = document.getElementsByTagName("html")[0]
+        let text = document.createElement("H1")
+        text.innerHTML = "Eindresultaten"
         html.style.overflow = `scroll` 
         let htmlGame = this.game as HTMLElement
         htmlGame.style.overflow = `scroll`
         this.game.innerHTML = ""
         console.log("endresults")
         let topCard = document.createElement("card")
+        this.game.appendChild(text)
         this.game.appendChild(topCard)
         topCard.style.backgroundImage = localStorage.getItem("situation1")
         topCard.style.left = `10vw`
+        topCard.style.top = `10vh`
 
         let middleCard = document.createElement("card")
-        middleCard.style.top = `45vh`
+        middleCard.style.top = `55vh`
         this.game.appendChild(middleCard)
         middleCard.style.backgroundImage = localStorage.getItem("situation2")
         middleCard.style.left = `10vw`
 
         let bottomCard = document.createElement("card")
         this.game.appendChild(bottomCard)
-        bottomCard.style.top = `90vh`
+        bottomCard.style.top = `100vh`
         bottomCard.style.backgroundImage = localStorage.getItem("situation3")
         bottomCard.style.left = `10vw`
+        let bottomText = document.createElement("h1")
+        bottomText.innerHTML = `bespreek met je groepsgenoten hoe jullie keuzes verschillen en waarom!`
+        this.game.appendChild(bottomText)
+        bottomText.style.top = `140vh`
     }
 }
