@@ -206,7 +206,11 @@ var Situation = (function () {
             this.card2.style.transform = "translateX(0%)";
             this.card3.style.transform = "translateX(105%)";
         }
-        else {
+        else if (this.selection == "right") {
+            this.selection = "left";
+            this.card1.style.transform = "translateX(0%)";
+            this.card2.style.transform = "translateX(105%)";
+            this.card3.style.transform = "translateX(210%)";
         }
     };
     Situation.prototype.cycleLeft = function () {
@@ -223,7 +227,11 @@ var Situation = (function () {
             this.card2.style.transform = "translateX(0%)";
             this.card3.style.transform = "translateX(105%)";
         }
-        else {
+        else if (this.selection == "left") {
+            this.selection = "right";
+            this.card1.style.transform = "translateX(-210%)";
+            this.card2.style.transform = "translateX(-105%)";
+            this.card3.style.transform = "translateX(0%)";
         }
     };
     Situation.prototype.submitCard = function () {

@@ -109,8 +109,11 @@ class Situation{
             this.card2.style.transform = `translateX(0%)`
             this.card3.style.transform = `translateX(105%)`
         } 
-        else{
-            //do nothing because the selector cant go further right
+        else if (this.selection == "right"){
+            this.selection = "left"
+            this.card1.style.transform = `translateX(0%)`
+            this.card2.style.transform = `translateX(105%)`
+            this.card3.style.transform = `translateX(210%)`
         }
     }
 
@@ -128,8 +131,11 @@ class Situation{
             this.card2.style.transform = `translateX(0%)`
             this.card3.style.transform = `translateX(105%)`
         }
-        else {
-            //do nothing because the selector cant go further left
+        else if (this.selection == "left"){
+            this.selection = "right"
+            this.card1.style.transform = `translateX(-210%)`
+            this.card2.style.transform = `translateX(-105%)`
+            this.card3.style.transform = `translateX(0%)`
         }
     }
 
