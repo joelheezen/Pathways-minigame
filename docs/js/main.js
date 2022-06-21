@@ -130,11 +130,11 @@ var Situation = (function () {
         }
     };
     Situation.prototype.checkDirection = function () {
-        if (this.touchendX < this.touchstartX) {
-            this.cycleLeft();
-        }
-        if (this.touchendX > this.touchstartX) {
+        if (this.touchendX < this.touchstartX && this.touchendX - this.touchstartX < -40) {
             this.cycleRight();
+        }
+        if (this.touchendX > this.touchstartX && this.touchendX - this.touchstartX > 40) {
+            this.cycleLeft();
         }
     };
     Situation.prototype.createCardBox = function () {
@@ -156,6 +156,7 @@ var Situation = (function () {
         });
         document.addEventListener('touchend', function (e) {
             _this.touchendX = e.changedTouches[0].screenX;
+            console.log(_this.touchendX, _this.touchstartX);
             _this.checkDirection();
         });
     };

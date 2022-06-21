@@ -26,8 +26,8 @@ class Situation{
     }
 
     checkDirection() {
-        if (this.touchendX < this.touchstartX) {this.cycleLeft()}
-        if (this.touchendX > this.touchstartX) {this.cycleRight()}
+        if (this.touchendX < this.touchstartX && this.touchendX - this.touchstartX < -40) {this.cycleRight()}
+        if (this.touchendX > this.touchstartX && this.touchendX - this.touchstartX > 40) {this.cycleLeft()}
     }
 
     createCardBox(){
@@ -50,6 +50,7 @@ class Situation{
 
         document.addEventListener('touchend', e => {
             this.touchendX = e.changedTouches[0].screenX
+            console.log(this.touchendX,this.touchstartX)
             this.checkDirection()
         })
     }
