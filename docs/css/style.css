@@ -24,6 +24,10 @@ game{
     background-color: oldlace;
 }
 
+.question{
+    font-size: 150%;
+}
+
 game *{
     display : block;
 }

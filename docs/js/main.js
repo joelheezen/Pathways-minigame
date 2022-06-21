@@ -98,6 +98,7 @@ var Prompt = (function () {
     function Prompt(text) {
         this.h1 = document.createElement("h1");
         this.h1.innerHTML = text;
+        this.h1.classList.add("question");
     }
     Prompt.prototype.returnPrompt = function () {
         return this.h1;
