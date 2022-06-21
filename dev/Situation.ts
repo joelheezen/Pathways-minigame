@@ -13,6 +13,7 @@ class Situation{
     }
 
     selectSituation(number:number){
+        Situation.selection = "mid"
         this.createCardBox()
         switch(number){
             case 1: this.createFirstSituation()

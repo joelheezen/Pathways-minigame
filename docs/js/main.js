@@ -114,6 +114,7 @@ var Situation = (function () {
         this.selectSituation(number);
     }
     Situation.prototype.selectSituation = function (number) {
+        Situation.selection = "mid";
         this.createCardBox();
         switch (number) {
             case 1:
