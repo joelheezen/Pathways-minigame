@@ -184,7 +184,7 @@ class Situation{
         bottomCard.style.backgroundImage = localStorage.getItem("situation3")
         bottomCard.style.left = `10vw`
         let bottomText = document.createElement("h1")
-        bottomText.innerHTML = `bespreek met je groepsgenoten hoe jullie keuzes verschillen en waarom!`
+        bottomText.innerHTML = `bespreek met je groepsgenoten hoe jullie keuzes verschillen en waarom! Daarna mag je een grenzen bloemetje pakken.`
         this.game.appendChild(bottomText)
         bottomText.style.top = `140vh`
     }
