@@ -5,7 +5,7 @@ class Situation{
     card2 :HTMLElement
     card3 :HTMLElement
     submitSelection :HTMLElement
-    selection = "mid"
+    static selection = "mid"
     touchstartX = 0
     touchendX = 0
     constructor(number:number){
@@ -109,41 +109,44 @@ class Situation{
     }
 
     cycleRight(){
-        if (this.selection == "mid"){
-            this.selection = "right"
+        if (Situation.selection == "mid"){
+            Situation.selection = "right"
             this.card1.style.transform = `translateX(-210%)`
             this.card2.style.transform = `translateX(-105%)`
             this.card3.style.transform = `translateX(0%)`
         }
-        else if(this.selection == "left"){
-            this.selection = "mid"
+        else if(Situation.selection == "left"){
+            Situation.selection = "mid"
             this.card1.style.transform = `translateX(-105%)`
             this.card2.style.transform = `translateX(0%)`
             this.card3.style.transform = `translateX(105%)`
         } 
-        else if (this.selection == "right"){
-            this.selection = "left"
+        else if (Situation.selection == "right"){
+            Situation.selection = "left"
             this.card1.style.transform = `translateX(0%)`
             this.card2.style.transform = `translateX(105%)`
             this.card3.style.transform = `translateX(210%)`
+        }
+        else{
+            // do nothing
         }
     }
 
     cycleLeft(){
-        if (this.selection == "mid"){
-            this.selection = "left"
+        if (Situation.selection == "mid"){
+            Situation.selection = "left"
             this.card1.style.transform = `translateX(0%)`
             this.card2.style.transform = `translateX(105%)`
             this.card3.style.transform = `translateX(210%)`
         }
-        else if(this.selection == "right"){
-            this.selection = "mid"
+        else if(Situation.selection == "right"){
+            Situation.selection = "mid"
             this.card1.style.transform = `translateX(-105%)`
             this.card2.style.transform = `translateX(0%)`
             this.card3.style.transform = `translateX(105%)`
         }
-        else if (this.selection == "left"){
-            this.selection = "right"
+        else if (Situation.selection == "left"){
+            Situation.selection = "right"
             this.card1.style.transform = `translateX(-210%)`
             this.card2.style.transform = `translateX(-105%)`
             this.card3.style.transform = `translateX(0%)`
@@ -151,13 +154,13 @@ class Situation{
     }
 
     submitCard(){
-        if(this.selection == "left"){
+        if(Situation.selection == "left"){
             this.submitSelection = this.card1
         } 
-        else if(this.selection == "mid"){
+        else if(Situation.selection == "mid"){
             this.submitSelection = this.card2
         }
-        else if(this.selection == "right"){
+        else if(Situation.selection == "right"){
             this.submitSelection = this.card3
         }
         else{

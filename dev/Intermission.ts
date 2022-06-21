@@ -9,6 +9,7 @@ class Intermission{
     showSelectedCard(card:HTMLElement){
         this.game.appendChild(new Prompt("Je hebt gekozen voor").returnPrompt())
         this.game.appendChild(card)
+        Situation.selection = "nothing"
         localStorage.setItem("situation" + Startscreen.currentSituation, card.style.backgroundImage)
         card.style.top = `10vh`
         card.style.left = `10vw`
