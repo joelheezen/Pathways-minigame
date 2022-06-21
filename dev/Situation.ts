@@ -6,6 +6,8 @@ class Situation{
     card3 :HTMLElement
     submitSelection :HTMLElement
     selection = "mid"
+    touchstartX = 0
+    touchendX = 0
     constructor(number:number){
         this.selectSituation(number)
     }
@@ -23,6 +25,11 @@ class Situation{
         }
     }
 
+    checkDirection() {
+        if (this.touchendX < this.touchstartX) {this.cycleLeft()}
+        if (this.touchendX > this.touchstartX) {this.cycleRight()}
+    }
+
     createCardBox(){
         this.game.innerHTML = ""
         this.game.appendChild(this.cardBox)
@@ -36,6 +43,15 @@ class Situation{
         this.game.appendChild(rightCycle)
         leftCycle.addEventListener("click", () => this.cycleLeft())
         rightCycle.addEventListener("click", () => this.cycleRight())
+
+        document.addEventListener('touchstart', e => {
+            this.touchstartX = e.changedTouches[0].screenX
+        })
+
+        document.addEventListener('touchend', e => {
+            this.touchendX = e.changedTouches[0].screenX
+            this.checkDirection()
+        })
     }
 
     createFirstSituation(){
@@ -188,4 +204,5 @@ class Situation{
         this.game.appendChild(bottomText)
         bottomText.style.top = `140vh`
     }
+    
 }

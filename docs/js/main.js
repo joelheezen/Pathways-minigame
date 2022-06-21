@@ -110,6 +110,8 @@ var Situation = (function () {
         this.game = document.getElementsByTagName("game")[0];
         this.cardBox = document.createElement("cardbox");
         this.selection = "mid";
+        this.touchstartX = 0;
+        this.touchendX = 0;
         this.selectSituation(number);
     }
     Situation.prototype.selectSituation = function (number) {
@@ -127,6 +129,14 @@ var Situation = (function () {
             case 4: this.endScreen();
         }
     };
+    Situation.prototype.checkDirection = function () {
+        if (this.touchendX < this.touchstartX) {
+            this.cycleLeft();
+        }
+        if (this.touchendX > this.touchstartX) {
+            this.cycleRight();
+        }
+    };
     Situation.prototype.createCardBox = function () {
         var _this = this;
         this.game.innerHTML = "";
@@ -141,6 +151,13 @@ var Situation = (function () {
         this.game.appendChild(rightCycle);
         leftCycle.addEventListener("click", function () { return _this.cycleLeft(); });
         rightCycle.addEventListener("click", function () { return _this.cycleRight(); });
+        document.addEventListener('touchstart', function (e) {
+            _this.touchstartX = e.changedTouches[0].screenX;
+        });
+        document.addEventListener('touchend', function (e) {
+            _this.touchendX = e.changedTouches[0].screenX;
+            _this.checkDirection();
+        });
     };
     Situation.prototype.createFirstSituation = function () {
         this.game.appendChild(new Prompt("Je bent onderweg naar huis, welke weg zou je nemen?").returnPrompt());
