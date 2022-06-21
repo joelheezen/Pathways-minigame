@@ -260,6 +260,7 @@ var Situation = (function () {
             this.submitSelection = this.card3;
         }
         else {
+            this.submitSelection = this.card3;
         }
         new Intermission(this.submitSelection);
     };

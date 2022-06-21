@@ -166,6 +166,7 @@ class Situation{
         }
         else{
             //do nothing
+            this.submitSelection = this.card3
         }
         new Intermission(this.submitSelection)
     }
