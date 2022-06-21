@@ -50,14 +50,12 @@ class Situation{
 
         document.addEventListener('touchend', e => {
             this.touchendX = e.changedTouches[0].screenX
-            console.log(this.touchendX,this.touchstartX)
             this.checkDirection()
         })
     }
 
     createFirstSituation(){
         this.game.appendChild(new Prompt("Je bent onderweg naar huis, welke weg zou je nemen?").returnPrompt())
-        console.log("created first situation")
         this.card1 = new Card(1).returnCard()
         this.card2 = new Card(2).returnCard()
         this.card3 = new Card(3).returnCard()
@@ -73,7 +71,6 @@ class Situation{
 
     createSecondSituation(){
         this.game.appendChild(new Prompt("Iemand benadert je, op wie zou je reageren?").returnPrompt())
-        console.log("created second situation")
         this.card1 = new Card(4).returnCard()
         this.card2 = new Card(5).returnCard()
         this.card3 = new Card(6).returnCard()
@@ -89,7 +86,6 @@ class Situation{
 
     createThirdSituation(){
         this.game.appendChild(new Prompt("Je ziet iemand seksueel geintimideert worden, help je, bel je de politie of troost je die persoon nadat het gebeurt is?").returnPrompt())
-        console.log("created third situation")
         this.card1 = new Card(7).returnCard()
         this.card2 = new Card(8).returnCard()
         this.card3 = new Card(9).returnCard()
@@ -113,7 +109,6 @@ class Situation{
     }
 
     cycleRight(){
-        console.log("cycling right")
         if (this.selection == "mid"){
             this.selection = "right"
             this.card1.style.transform = `translateX(-210%)`
@@ -135,7 +130,6 @@ class Situation{
     }
 
     cycleLeft(){
-        console.log("cycling left")
         if (this.selection == "mid"){
             this.selection = "left"
             this.card1.style.transform = `translateX(0%)`
@@ -157,7 +151,6 @@ class Situation{
     }
 
     submitCard(){
-        console.log("test" + this.selection)
         if(this.selection == "left"){
             this.submitSelection = this.card1
         } 
@@ -181,7 +174,6 @@ class Situation{
         let htmlGame = this.game as HTMLElement
         htmlGame.style.overflow = `scroll`
         this.game.innerHTML = ""
-        console.log("endresults")
         let topCard = document.createElement("card")
         this.game.appendChild(text)
         this.game.appendChild(topCard)

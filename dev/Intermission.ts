@@ -12,7 +12,6 @@ class Intermission{
         localStorage.setItem("situation" + Startscreen.currentSituation, card.style.backgroundImage)
         card.style.top = `10vh`
         card.style.left = `10vw`
-        console.log(card)
     }
 
     nextButton(){
